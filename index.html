@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>National_parks_practice</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="container">
+        <h1>National Park Assignment</h1>
+
+        <form id="js-form" class="search-form css-search">
+            <label id="search-label" for="nationalPark">Find a National Park</label>
+            <input type="text" name="parkName" id="js-parkName" required>
+
+             <label for="max-results">Maximum results to return</label>
+            <input type="number" name="max-results" id="js-max-results" value="10">
+            
+            <button type="submit" id="find-btn">Find</button>
+        </form>
+    </section>
+    <div class="js-error"></div>
+    <div class="api-results"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
