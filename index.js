@@ -12,7 +12,7 @@ function formatQueryParams(params) {
     return queryItems.join('&');
 }
 
-function displayResults(responseJson, limit) {
+function displayResults(responseJson) {
     console.log(responseJson)
     $('.api-results').empty();
     for (let i = 0; i < responseJson.data.length; i++) {
@@ -21,8 +21,9 @@ function displayResults(responseJson, limit) {
             `<ul> 
     <li><h3>${responseJson.data[i].fullName}</h3>
         <p>${responseJson.data[i].description}</p>
+        <p>${responseJson.data[i].latLong}</p>
         <p>
-            <a href="${responseJson.data[i].directionsUrl}">Directions
+            <a href="${responseJson.data[i].directionsUrl}">URL
             </a>
         </p>
     </li>
