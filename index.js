@@ -44,17 +44,8 @@ function getParks(query, limit = 10) {
 
     console.log(url)
 
-    const options = {
-        // mode: 'cors',
-        // headers: new Headers({
-        //     'Access-Control-Allow-Origin':'*',
-        //     "Access-Control-Allow-Headers":"Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
-
-        //     "X-Api-Key": apiKey})
-    };
-
     $('.api-results').html(`<p>Please wait...</p>`);
-    fetch(url, options)
+    fetch(url)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -74,7 +65,7 @@ function watchForm() {
         const searchTerm = $('#js-parkName').val();
         const limit = $('#js-max-results').val();
         const numericLimit = parseInt(limit, 10)
-        if (numericLimit <= 0 || numericLimit > 50) {
+        if (numericLimit <= 1 || numericLimit > 50) {
             return alert('Limit should be a number between 1 and 50')
         }
         getParks(searchTerm, limit);
