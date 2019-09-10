@@ -14,13 +14,18 @@ function formatQueryParams(params) {
 
 function displayResults(responseJson, limit){
     console.log(responseJson)
-    $('.api_results').empty();
-    for (let i = 0; i < responseJson.parks.length & limit; i++){
-    $('.api_results').append(
+    $('.api-results').empty();
+    for (let i = 0; i < responseJson.data.length; i++){
+    
+    $('.api-results').append(
     `<ul> 
     <li><h3>${responseJson.data[i].fullName}</h3>
-     <p>${responseJson.data[i].description}</p>
-     <p><a href="${responseJson.data[i].directionsUrl}"></p></li>
+        <p>${responseJson.data[i].description}</p>
+        <p>
+            <a href="${responseJson.data[i].directionsUrl}">Directions
+            </a>
+        </p>
+    </li>
      `
     )};
 };
@@ -28,6 +33,7 @@ function displayResults(responseJson, limit){
 function getParks(query, limit=10){
     const params = {
         q: query,
+        api_key:apiKey,
         language: 'en',
         limit
     };
@@ -38,8 +44,12 @@ function getParks(query, limit=10){
   console.log(url)
 
   const options = {
-    headers: new Headers({
-        "X-Api-Key": apiKey})
+    // mode: 'cors',
+    // headers: new Headers({
+    //     'Access-Control-Allow-Origin':'*',
+    //     "Access-Control-Allow-Headers":"Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+
+    //     "X-Api-Key": apiKey})
     };
 
   fetch(url, options)
