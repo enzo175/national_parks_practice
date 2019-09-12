@@ -10,21 +10,26 @@
 </head>
 
 <body>
-    <section class="container">
-        <h1>National Park Assignment</h1>
+  <section class="container">
+    <h1>National Park Assignment</h1>
 
-        <form id="js-form" class="search-form css-search">
-            <label id="search-label" for="nationalPark">Find a National Park</label>
-            <input type="text" name="parkName" id="js-parkName" required>
+    <form id="js-form" class="search-form css-search">
+      <label id="search-label" for="nationalPark">Find a National Park</label>
+      <input type="text" name="parkName" id="js-parkName" required>
+      <div>
 
-             <label for="max-results">Maximum results to return</label>
-            <input type="number" name="max-results" id="js-max-results" value="10">
-            
-            <button type="submit" id="find-btn">Find</button>
-        </form>
-    </section>
-    <div class="js-error"></div>
-    <div class="api-results"></div>
+        <label id="states-label" for="js-stateCodes">Limit search to state codes</label>
+        <input type="text" name="stateCodes" id="js-stateCodes" />
+      </div>
+
+      <label for="max-results">Maximum results to return</label>
+      <input type="number" name="max-results" id="js-max-results" value="10">
+
+      <button type="submit" id="find-btn">Find</button>
+    </form>
+  </section>
+  <div class="js-error"></div>
+  <div class="api-results"></div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="index.js"></script>

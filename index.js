@@ -32,18 +32,23 @@ function displayResults(responseJson) {
     };
 };
 
-function getParks(query, limit = 10) {
+// function getParks(query, limit = 10, stateCodes = '') {
+function getParks(query, limit, stateCodes) {
     const params = {
         q: query,
         api_key: apiKey,
         language: 'en',
-        limit
+        limit,
+        stateCode: stateCodes,
     };
+    // if (stateCodes) {
+    //     params.stateCode = stateCodes
+    // }
 
     const queryString = formatQueryParams(params)
     const url = searchUrl + '?' + queryString;
 
-    console.log(url)
+    console.log(`FETCH URL is: ${url}`)
 
     $('.api-results').html(`<p>Please wait...</p>`);
     fetch(url)
@@ -64,12 +69,13 @@ function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
         const searchTerm = $('#js-parkName').val();
+        const stateCodes = $('#js-stateCodes').val();
         const limit = $('#js-max-results').val();
         const numericLimit = parseInt(limit, 10)
         if (numericLimit <= 1 || numericLimit > 50) {
             return alert('Limit should be a number between 1 and 50')
         }
-        getParks(searchTerm, limit);
+        getParks(searchTerm, limit, stateCodes);
     });
 }
 
