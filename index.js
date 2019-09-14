@@ -23,7 +23,7 @@ function displayResults(responseJson) {
         <p>${responseJson.data[i].description}</p>
         <p>${responseJson.data[i].latLong}</p>
         <p>
-            <a href="${responseJson.data[i].directionsUrl}">URL
+            <a target="_blank" rel="noopener noreferrer" href="${responseJson.data[i].directionsUrl}">URL
             </a>
         </p>
     </li>
