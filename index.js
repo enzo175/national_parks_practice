@@ -69,7 +69,7 @@ function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
         const searchTerm = $('#js-parkName').val();
-        const stateCodes = $('#js-stateCodes').val();
+        const stateCodes = $('#js-stateCodes').val().split(",");
         const limit = $('#js-max-results').val();
         const numericLimit = parseInt(limit, 10)
         if (numericLimit <= 1 || numericLimit > 50) {
